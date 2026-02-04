@@ -1,0 +1,73 @@
+body {
+  background: #0f172a;
+  color: #fff;
+  min-height: 100vh;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+/* Game grid */
+.game-board {
+  max-width: 600px;
+  margin: auto;
+}
+
+/* Card container */
+.memory-card {
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.memory-card.flip .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  border-radius: 12px;
+  backface-visibility: hidden;
+  user-select: none;
+}
+
+.card-front {
+  background: #1e293b;
+  border: 2px solid #334155;
+}
+
+.card-back {
+  background: #38bdf8;
+  color: #0f172a;
+  transform: rotateY(180deg);
+  font-size: 3rem;
+}
+
+/* Hover effect */
+.memory-card:hover .card-front {
+  background: #334155;
+}
+
+.matched .card-back {
+  background: #22c55e;
+  color: #022c22;
+}
+
+@media (max-width: 576px) {
+  .card-back {
+    font-size: 2.2rem;
+  }
+}
